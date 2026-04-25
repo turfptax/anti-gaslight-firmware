@@ -1,0 +1,28 @@
+{
+  "_comment": "Application settings for an anti-gaslight node. Copy to settings.json (gitignored) and edit. Wi-Fi credentials and OTA repo info live in /config.json (ugit's file) -- NOT here -- so this file is safe-ish to share. Pin numbers below are the verified ESP32-S3 Super Mini defaults from the bring-up on 2026-04-24.",
+
+  "room": "bedroom",
+
+  "mqtt": {
+    "_comment": "Local LAN MQTT broker. See docs/mqtt_topics.md for topic tree.",
+    "host": "192.168.1.10",
+    "port": 1883,
+    "username": "",
+    "password": "",
+    "keepalive_s": 60
+  },
+
+  "pins": {
+    "_comment": "GPIO numbers, verified on ESP32-S3 Super Mini.",
+    "i2c":     { "bus": 0, "scl": 9, "sda": 8, "freq": 400000 },
+    "tcs3200": { "s2": 5, "s3": 6, "out": 4 },
+    "pir":     { "out": 2 }
+  },
+
+  "cadences_s": {
+    "_comment": "Sensor sampling periods per SPEC §6. Editable at runtime.",
+    "bme280": 30,
+    "tcs3200": 10,
+    "pir_heartbeat": 60
+  }
+}

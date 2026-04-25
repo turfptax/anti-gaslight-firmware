@@ -1,0 +1,36 @@
+# =============================================================================
+# anti-gaslight-firmware  --  .gitignore
+#
+# This repo's contents flatten directly onto the ESP32's filesystem via ugit.
+# Anything tracked here ships to every node on the next OTA pull, so be
+# deliberate about what gets committed.
+# =============================================================================
+
+# ----- secrets (never commit) -----
+# ugit's runtime config: Wi-Fi SSID/password and GitHub PAT.
+# Lives at /config.json on the device. A host-side draft copy in this folder
+# would also be caught.
+config.json
+
+# Application config: MQTT broker, room label, pin overrides.
+# Lives at /config/settings.json on the device. The .example is committed.
+config/settings.json
+
+# Host-side draft copy of the ugit config, if you keep one in-repo for editing.
+config/ugit_config.json
+
+# ----- python / micropython artifacts -----
+__pycache__/
+*.py[cod]
+*.mpy
+
+# ----- editor / OS cruft -----
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ----- ugit runtime files (only relevant if pulled off-device for debugging) -----
+ugit_log.txt
+ugit.backup/
