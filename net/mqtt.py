@@ -59,6 +59,22 @@ class MQTTPublisher:
             payload = payload.encode("utf-8")
         self._client.publish(topic, payload, retain=retain, qos=qos)
 
+    def subscribe(self, topic, qos=0):
+        """Subscribe to a topic. Pair with set_callback() for delivery."""
+        if isinstance(topic, str):
+            topic = topic.encode("utf-8")
+        self._client.subscribe(topic, qos=qos)
+        print("[mqtt] subscribed to", topic)
+
+    def set_callback(self, callback):
+        """
+        Register a function for incoming subscribed messages.
+
+        callback(topic_bytes, payload_bytes) -- both are raw bytes from the
+        client. The caller is responsible for decoding / JSON-parsing.
+        """
+        self._client.set_callback(callback)
+
     def loop(self):
         """Service the client. Call from main loop to drive keepalive + subs."""
         try:

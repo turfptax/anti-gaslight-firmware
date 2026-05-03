@@ -19,6 +19,9 @@
     "pir":     { "out": 2 }
   },
 
+  "_buzzer_comment": "Optional piezo buzzer for the play_tone command. Set to a free GPIO (e.g. 7) once a buzzer is wired; null disables the command and play_tone responds with 'no buzzer_pin configured'.",
+  "buzzer_pin": null,
+
   "cadences_s": {
     "_comment": "Sensor sampling periods per SPEC §6. Editable at runtime.",
     "bme280": 30,
