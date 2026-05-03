@@ -11,11 +11,11 @@
   "_token_comment": "Empty for public repos. For private repos, use a fine-grained PAT scoped to read-only access on this single repo.",
   "token": "",
 
-  "_ignore_comment": "Paths ugit should NOT pull onto the device. Two categories: (1) host-only repo metadata that has no business on flash; (2) device-local state files that the user creates and edits on the device -- ugit must NOT delete these on subsequent pulls. ugit auto-protects /ugit.py, /config.json, /ugit.backup, /ugit_log.txt, /lib, and /sd, so those don't need listing here.",
+  "_ignore_comment": "Paths ugit should NOT pull from GitHub AND must NOT delete from the device. Two categories: (1) host-only repo metadata that has no business on flash; (2) device-local state files that the user creates and edits on the device. CRITICAL: each entry MUST start with '/' -- ugit compares against absolute device paths like '/settings.json', so a bare 'settings.json' will NOT match and the file will be deleted on the next pull. ugit auto-protects /ugit.py, /config.json, /ugit.backup, /ugit_log.txt, /lib, /sd already; those don't need listing.",
   "ignore": [
-    ".gitignore",
-    ".git",
-    "README.md",
-    "settings.json"
+    "/.gitignore",
+    "/.git",
+    "/README.md",
+    "/settings.json"
   ]
 }
