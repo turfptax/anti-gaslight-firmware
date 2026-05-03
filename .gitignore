@@ -13,11 +13,11 @@
 config.json
 
 # Application config: MQTT broker, room label, pin overrides.
-# Lives at /config/settings.json on the device. The .example is committed.
-config/settings.json
+# Lives at /settings.json on the device. The .example is committed.
+settings.json
 
 # Host-side draft copy of the ugit config, if you keep one in-repo for editing.
-config/ugit_config.json
+ugit_config.json
 
 # ----- python / micropython artifacts -----
 __pycache__/

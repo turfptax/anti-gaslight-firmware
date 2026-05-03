@@ -26,7 +26,7 @@ from net.serial_cmd import poll_line
 import commands
 
 
-SETTINGS_PATH = "config/settings.json"
+SETTINGS_PATH = "settings.json"
 TOPIC_PREFIX  = "anti-gaslight"
 
 
@@ -96,7 +96,7 @@ def main():
         settings = load_settings(SETTINGS_PATH)
     except OSError:
         print("[main] FATAL:", SETTINGS_PATH, "missing.")
-        print("[main] copy config/settings.example.json to settings.json and edit.")
+        print("[main] copy /settings.example.json to /settings.json and edit.")
         return
 
     if not ensure_connected():
